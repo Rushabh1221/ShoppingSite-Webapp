@@ -1,0 +1,211 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<!--Banner Slider-->
+ <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'app/images/banner/bn1.jpg' %}" height="570px" class="d-block w-100" alt="..."> 
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/bn2.jpg' %}" height="570px" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/bn3.jpg' %}" height="570px" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/bn4.jpg' %}" height="570px" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/bn5.jpg' %}" height="570px" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+{% block livesale %}
+<!-- Live Sale Section -->
+<div class="container">
+  <div class="row bg-warning text-center p-5 text-white border-bottom shadow">
+    <h1>SALE IS LIVE NOW</h1>
+    <span>Use your Coupon code and Vouchers to get extra discount</span>
+    <span>10% Instant Discount on any Bank Credit and Debit Card</span>
+    <small class="fw-lighter">Term and Condition Applied (For details visit Bank's official Website)</small>
+  </div>
+</div> 
+<!-- End Live Sale Section -->
+{% endblock livesale %}
+
+{% block main-content %}
+<!-- 1st Product Slider -->
+<div class="m-3">
+ <h2>Bottomwears</h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+   {% for bw in bottomwears %}
+  <a href="{% url 'product-detail' bw.id %}" class="btn"><div class="item"><img src="{{bw.product_image.url}}" alt="" height="200px" width="200px"><span class="fw-bold">{{bw.title}}</span><br><span class="fs-5">{{bw.selling_price}}</span></div></a>
+   {% endfor %}
+ </div>
+</div>
+<!-- End 1st Product Slider --> 
+
+<!-- Payment Info Section -->
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+     <img src="{% static 'app/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+ </div>
+</div>
+<!-- End Payment Info Section -->
+
+<!-- 2nd Product Slider -->
+<div class="mx-3"> 
+ <h2>Top wears</h2>
+ <!-- Slider 2 -->
+ <div class="owl-carousel" id="slider2">
+  {% for tw in topwears %}
+   <a href="{% url 'product-detail' tw.id %}" class="btn"><div class="item"><img src="{{tw.product_image.url}}" alt="" height="200px" width="200px"><span class="fw-bold">{{tw.title}}</span><br><span class="fs-5">{{tw.selling_price}}</span></div></a>
+  {% endfor %}
+ </div>
+</div>
+<!-- End 2nd Product Slider -->
+
+<!-- 3rd Product Slider -->
+<div class="mx-3"> 
+  <h2>Mobiles</h2>
+  <!-- Slider 3 -->
+  <div class="owl-carousel" id="slider3">
+   {% for m in mobiles %}
+    <a href="{% url 'product-detail' m.id %}" class="btn"><div class="item"><img src="{{m.product_image.url}}" alt="" height="200px" width="200px"><span class="fw-bold">{{m.title}}</span><br><span class="fs-5">{{m.selling_price}}</span></div></a>
+   {% endfor %}
+  </div>
+ </div>
+ <!-- End 3rd Product Slider -->
+
+ <!-- Our main Priority Section -->
+ <div class="mx-3">
+  <h3>Our Services</h3>
+ <div class="container-fluid bg-light text-center mt-2">
+  <div class="row">
+
+    <div class="col-sm-3 border-end">
+     <img src="{% static 'app/images/fastdel.svg' %}" alt="" width="80px" height="80px">
+     <h5 class="mb-2">Free & Fast Delivery</h5>
+    </div>
+    <div class="col-sm-3 border-end">
+      <img src="{% static 'app/images/product.png' %}" alt="" width="70px" height="70px">
+      <h5 class="mt-2">Genuine Products</h5>
+    </div>
+    <div class="col-sm-3 border-end">
+      <img src="{% static 'app/images/sp.svg' %}" alt="" width="70px" height="70px">
+      <h5 class="mt-2">Secure Payment</h5>
+    </div>
+    <div class="col-sm-3">
+      <img src="{% static 'app/images/24ss.svg' %}" alt="" width="70px" height="70px">
+      <h5 class="mt-2">Support & Services</h5>
+    </div>
+
+  </div>
+ </div>
+ </div>
+
+ <!-- End Our main Priority Section -->
+
+ <!-- About Section -->
+
+  <div class="container-fluid bg-dark text-white my-3">
+   <div class="row justify-content-center">
+
+    <h4 class="text-center text-warning mt-2">Get in Touch with us</h4>
+    <hr>
+    <div class="col-sm-3 border-end">
+      <ul class="list-unstyled">
+      <li class="p-2 h5 text-warning">SHOP FOR</li>
+      <li class="p-2">Clothes</li>
+      <li class="p-2">Shirts/T-Shirts</li>
+      <li class="p-2">Jeans/Tracks</li>
+      <li class="p-2">Electronics</li>
+    </ul>
+    </div>
+
+    <div class="col-sm-3 border-end">
+      <ul class="list-unstyled">
+      <li class="p-2 h5 text-warning">COMPANY</li>
+      <li class="p-2">About Us</li>
+      <li class="p-2">Careers</li>
+      <li class="p-2">Gift Vouchers</li>
+      <li class="p-2">Online Retailers</li>
+    </ul>
+    </div>
+
+    <div class="col-sm-3 border-end">
+      <ul class="list-unstyled">
+      <li class="p-2 h5 text-warning">NEED HELP</li>
+      <li class="p-2">Contact Us</li>
+      <li class="p-2">Track Orders</li>
+      <li class="p-2">Returns/Refunds</li>
+      <li class="p-2">FAQs</li>
+    </ul>
+    </div>
+
+    <div class="col-sm-3">
+      <ul class="list-unstyled">
+      <li class="p-2 h5 text-warning">MORE INFO</li>
+      <li class="p-2">T&C</li>
+      <li class="p-2">Privacy Policy</li>
+      <li class="p-2">Sitemap</li> 
+    </ul>
+    </div>
+    
+    <h4 class="text-center text-warning">Follow Us on</h4>
+    <div class="text-center">
+      <a href="#" target="blank"><i class="fab fa-twitter fa-2x i-color mr-3 m-2"></i></a>
+      <a href="#" target="blank"><i class="fab fa-facebook fa-2x i-color mr-3 m-2"></i></a>
+      <a href="#" target="blank"><i class="fab fa-instagram fa-2x i-color mr-3 m-2"></i></a> 
+      <a href="#" target="blank"><i class="fab fa-dribbble fa-2x i-color mr-3 m-2"></i></a> 
+    </div>
+
+   </div> 
+  </div>
+
+ <!-- EndAbout Section -->
+
+{% endblock main-content %}
+

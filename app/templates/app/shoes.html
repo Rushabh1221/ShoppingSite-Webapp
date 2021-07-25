@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Shoes{% endblock title %}
+{% block main-content %}
+
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="list-group">
+     <a href="{% url 'shoes' %}" class="list-group-item
+     list-group-item-action" aria-current="true">All Shoes</a>
+
+     <a href="{% url 'shoesdata' 'Sneakers' %}" class="list-group-item
+     list-group-item-action" aria-current="true">Sneakers</a>  
+
+     <a href="{% url 'shoesdata' 'Adidas' %}" class="list-group-item
+     list-group-item-action" aria-current="true">Adidas</a>  
+
+   </div>
+  </div>
+  <div class="col-sm-8 offset-sm-1">
+   <div class="row">
+     {% for product in shoe %}
+      <div class="col-sm-4 text-center mb-4">
+       <a href="{% url 'product-detail' product.id %}" class="btn">
+         <div class="item m-2">
+           <img src="{{product.product_image.url}}" alt="" class="" width="150" height="150">
+           <div class="fw-bold">{{product.title}}</div>
+           <div class="fw-bold">Rs. {{product.selling_price}}  
+           <small class="fw-light text-muted">Discount: {{product.discounted_price}}</small></div> 
+        </div>   
+       </a>   
+      </div>
+     {% endfor %}  
+   </div>
+  </div> 
+ </div>
+</div>
+
+{% endblock main-content %}
+
+
+
+
