@@ -1,0 +1,1 @@
+web gunicorn ShoppingSite.wsgi:application --log-file -
